@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.ViewGroup
 import dev.cherran.restaurapp.R
 import dev.cherran.restaurapp.fragment.TableListFragment
+import dev.cherran.restaurapp.model.Table
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), TableListFragment.OnTableSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,5 +24,12 @@ class MainActivity : AppCompatActivity() {
                         .commit()
             }
         }
+    }
+
+
+    // OnTableSelectedListener
+    override fun onTableSelected(table: Table, position: Int) {
+        val intent = TableActivity.intent(this, position)
+        startActivity(intent)
     }
 }

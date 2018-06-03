@@ -17,9 +17,6 @@ object Tables {
 
     fun getIndex(table: Table): Int = tables.indexOf(table)
 
-    // Operator Overloading
-    operator fun get(index: Int) = tables[index]
-
     fun getTable(index: Int) = tables[index]
 
     fun toArray() = tables.toTypedArray()

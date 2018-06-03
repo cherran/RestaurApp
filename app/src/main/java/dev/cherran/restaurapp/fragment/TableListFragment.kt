@@ -1,9 +1,10 @@
 package dev.cherran.restaurapp.fragment
 
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SimpleCursorAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +21,18 @@ import android.widget.TextView
 
 class TableListFragment : Fragment() {
 
+    interface OnTableSelectedListener {
+        fun onTableSelected(table: Table, position: Int)
+    }
+
+
     companion object {
         fun newInstance () = TableListFragment()
     }
+
+
+    var onTableSelectedListener: OnTableSelectedListener? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,7 +67,35 @@ class TableListFragment : Fragment() {
 
         table_list.adapter = adapter
 
+        // Aviso al listener que una mesa ha sido pulsada en la TableView
+        table_list.setOnItemClickListener { _, _, position, _ ->
+            onTableSelectedListener?.onTableSelected(Tables.getTable(position), position)
+        }
     }
 
+
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        commonAttach(context as Activity?)
+    }
+
+    override fun onAttach(activity: Activity?) {
+        super.onAttach(activity)
+        commonAttach(activity)
+    }
+
+    private fun commonAttach(activity: Activity?) {
+        if(activity is OnTableSelectedListener) {
+            onTableSelectedListener = activity
+        } else {
+            onTableSelectedListener = null
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        onTableSelectedListener = null
+    }
 
 }
