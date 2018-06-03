@@ -8,7 +8,7 @@ object Tables {
             Table("Mesa 4", 7, mutableListOf()),
             Table("Mesa 5", 2, mutableListOf()),
             Table("Mesa 6", 2, mutableListOf()),
-            Table("Mesa 7", 1, mutableListOf()),
+            Table("Mesa 7", 3, mutableListOf()),
             Table("Mesa 8", 6, mutableListOf())
     )
 

@@ -9,4 +9,7 @@ data class Table (val name: String, val people: Int, private var dishes: Mutable
 
     fun getDishAtIndex(index: Int): Dish? = dishes.get(index)
 
+    override fun toString(): String = name
+
+
 }
