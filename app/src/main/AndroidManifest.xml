@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TableActivity"
+        <activity android:name=".activity.TableDetailActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

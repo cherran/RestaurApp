@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), TableListFragment.OnTableSelectedListe
 
     // OnTableSelectedListener
     override fun onTableSelected(table: Table, position: Int) {
-        val intent = TableActivity.intent(this, position)
+        val intent = TableDetailActivity.intent(this, position)
         startActivity(intent)
     }
 }
