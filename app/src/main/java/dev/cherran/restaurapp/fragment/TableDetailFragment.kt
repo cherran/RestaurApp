@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import dev.cherran.restaurapp.R
-import dev.cherran.restaurapp.activity.TableDetailActivity
 import dev.cherran.restaurapp.model.Tables
 import kotlinx.android.synthetic.main.fragment_table_detail.*
 

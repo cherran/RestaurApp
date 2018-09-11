@@ -9,7 +9,14 @@ object Tables {
             Table("Mesa 5", 2, mutableListOf()),
             Table("Mesa 6", 2, mutableListOf()),
             Table("Mesa 7", 3, mutableListOf()),
-            Table("Mesa 8", 6, mutableListOf())
+            Table("Mesa 8", 6, mutableListOf()),
+            Table("Mesa 9", 6, mutableListOf()),
+            Table("Mesa 10", 8, mutableListOf()),
+            Table("Mesa 11", 2, mutableListOf()),
+            Table("Mesa 12", 1, mutableListOf()),
+            Table("Mesa 13", 5, mutableListOf()),
+            Table("Mesa 14", 3, mutableListOf())
+
     )
 
     val count
