@@ -57,4 +57,6 @@ object Dishes { // Singleton
     fun getIndex(dish: Dish): Int = dishes.indexOf(dish)
 
     fun toArray() = dishes.toTypedArray()
+
+    fun getAllDishes(): List<Dish> = dishes
 }

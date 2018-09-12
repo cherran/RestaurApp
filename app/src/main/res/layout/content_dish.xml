@@ -29,7 +29,6 @@
             android:id="@+id/dish_image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/dish_name"
             android:src="@drawable/fingers" />
@@ -43,7 +42,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/dish_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -58,35 +57,35 @@
 
             <ImageView
                 android:id="@+id/milk_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="0dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/allergen_icons_padding"
                 android:contentDescription="@string/milk"
                 android:src="@drawable/milk"
                 app:layout_constraintEnd_toStartOf="@+id/crustaceans_icon" />
 
             <ImageView
                 android:id="@+id/wheat_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="0dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/allergen_icons_padding"
                 android:contentDescription="@string/wheat"
                 android:src="@drawable/wheat"
                 app:layout_constraintEnd_toStartOf="@+id/milk_icon" />
 
             <ImageView
                 android:id="@+id/peanut_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="@dimen/allergen_icons_padding"
                 android:contentDescription="@string/peanut"
                 android:src="@drawable/peanut"
                 app:layout_constraintEnd_toStartOf="@+id/wheat_icon" />
 
             <ImageView
                 android:id="@+id/crustaceans_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="@dimen/allergen_icons_padding"
                 android:contentDescription="@string/crustaceans"
                 android:src="@drawable/crustaceans"
