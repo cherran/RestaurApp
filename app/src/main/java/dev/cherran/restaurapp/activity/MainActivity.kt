@@ -2,28 +2,22 @@ package dev.cherran.restaurapp.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ViewGroup
 import dev.cherran.restaurapp.R
+import dev.cherran.restaurapp.adapter.MainPagerAdapter
 import dev.cherran.restaurapp.fragment.TableListFragment
 import dev.cherran.restaurapp.model.Table
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), TableListFragment.OnTableSelectedListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragmentAdapter = MainPagerAdapter(supportFragmentManager)
+        viewpager_main.adapter = fragmentAdapter
 
-        if (findViewById<ViewGroup>(R.id.table_list_fragment) != null) { // Hay FrameLayout para un TableListFragment
-            // Compruebo que el fragment no esté añadido ya
-            if (supportFragmentManager.findFragmentById(R.id.table_list_fragment)  == null) { // Se puede hacer con savedInstanceState == null
-                // Añado el Fragment de forma dinámica
-                val fragment: TableListFragment =  TableListFragment.newInstance()
-
-                supportFragmentManager.beginTransaction()
-                        .add(R.id.table_list_fragment, fragment)
-                        .commit()
-            }
-        }
+        tabs_main.setupWithViewPager(viewpager_main)
     }
 
 

@@ -44,6 +44,25 @@ class TableDetailFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_table_detail, container, false)
+
+
+
+
+//        if (view.findViewById<ViewGroup>(R.id.table_list_fragment) != null) { // Hay FrameLayout
+//            // Compruebo que el fragment no esté añadido ya
+//            if (supportFragmentManager.findFragmentById(R.id.table_list_fragment)  == null) { // Se puede hacer con savedInstanceState == null
+//                // Añado el Fragment de forma dinámica
+//                val fragment: TableListFragment =  TableListFragment.newInstance()
+//
+//                supportFragmentManager.beginTransaction()
+//                        .add(R.id.table_list_fragment, fragment)
+//                        .commit()
+//            }
+//        }
+
+//        val childFragment = ChildFragment()
+//        val transaction = childFragmentManager.beginTransaction()
+//        transaction.replace(R.id.child_fragment_container, childFragment).commit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +72,18 @@ class TableDetailFragment : Fragment() {
 
         table_name?.text = table.name
         table_people?.text = getString(R.string.table_people_number_text, table.people)
+
+        if (view.findViewById<ViewGroup>(R.id.table_dish_list_fragment) != null) { // Hay FrameLayout
+            // Compruebo que el fragment no esté añadido ya
+            if (childFragmentManager.findFragmentById(R.id.table_dish_list_fragment)  == null) { // Se puede hacer con savedInstanceState == null
+                // Añado el Fragment de forma dinámica
+                val fragment = DishListFragment.newInstance("", "")
+
+                childFragmentManager.beginTransaction()
+                        .add(R.id.table_dish_list_fragment, fragment)
+                        .commit()
+            }
+        }
     }
 
 }
