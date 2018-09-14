@@ -8,5 +8,7 @@
     <string name="milk">Leche</string>
     <string name="wheat">Gluten</string>
     <string name="peanut">Frutos Secos</string>
-    <string name="price_tag">Precio: %.2f</string>
+    <string name="price_tag">Precio: %.2f€</string>
+    <string name="bill">Calcular cuenta</string>
+    <string name="bill_snackbar_message">La cuenta asciende a %.2f€</string>
 </resources>

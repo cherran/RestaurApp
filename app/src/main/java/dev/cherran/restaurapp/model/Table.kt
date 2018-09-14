@@ -13,5 +13,14 @@ data class Table (val name: String, val people: Int, private var dishes: Mutable
 
     fun getDishes() = dishes
 
+    fun getBill(): Float {
+        var bill: Float = 0.0F
+        dishes.forEach { dish ->
+            bill += dish.price
+        }
+
+        return bill
+    }
+
 
 }

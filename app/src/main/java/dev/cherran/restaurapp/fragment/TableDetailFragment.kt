@@ -2,10 +2,9 @@ package dev.cherran.restaurapp.fragment
 
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 
 import dev.cherran.restaurapp.R
 import dev.cherran.restaurapp.adapter.CellFormat
@@ -41,6 +40,9 @@ class TableDetailFragment : Fragment() {
         arguments?.let {
             tableIndex = it.getInt(ARG_TABLE, 0)
         }
+
+        // For showing the top bar menu
+        setHasOptionsMenu(true)
     }
 
 
@@ -91,5 +93,42 @@ class TableDetailFragment : Fragment() {
             }
         }
     }
+
+
+    // Top bar menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_fragment_table_detail, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val table = Tables.getTable(tableIndex!!)
+
+        Snackbar
+                .make(activity!!.findViewById<View>(R.id.table_detail_activity_coordinator), String.format(getString(R.string.bill_snackbar_message), table.getBill()), Snackbar.LENGTH_SHORT)
+                .show()
+
+
+//        if (item.itemId == R.id.action_compute_bill) {
+//            val orders = TableOrders.getTables(activity!!)[tableNumber]
+//            val total = orders.allOrders
+//                    .map { it.price }
+//                    .sum()
+//
+//            val dialog = AlertDialog.Builder(list.context)
+//            dialog.setTitle(R.string.bill_title)
+//            dialog.setMessage(String.format(resources.getString(R.string.total_bill_message), total))
+//
+//            dialog.setPositiveButton(android.R.string.ok) { _, _ -> orders.clearOrders(list.context) }
+//            dialog.setNegativeButton(android.R.string.cancel, null)
+//
+//            dialog.show()
+//
+//            return true
+//        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
 }
