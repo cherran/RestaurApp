@@ -1,8 +1,30 @@
 package dev.cherran.restaurapp.model
 
+import dev.cherran.restaurapp.R
+
 object Tables {
     private val tables = listOf<Table>(
-            Table("Mesa 1", 4, mutableListOf()),
+            Table("Mesa 1", 4, mutableListOf(
+                    Dish("Brownie",
+                            "Bizcocho caliente de chocolate, con nueces, cubierto por un helado de vainilla y chocolate fundido.",
+                            R.drawable.brownie,
+                            arrayOf(Allergens.GLUTEN, Allergens.FRUTOS_SECOS),
+                            7.90f,
+                            null),
+
+                    Dish("Tarta de Queso",
+                            "Tarta de crema de queso, base de galleta y una capa de mermelada de fresas",
+                            R.drawable.cheesecake,
+                            arrayOf(Allergens.GLUTEN, Allergens.LACTEOS),
+                            9.50f,
+                            null),
+                    Dish("Brownie",
+                            "Bizcocho caliente de chocolate, con nueces, cubierto por un helado de vainilla y chocolate fundido.",
+                            R.drawable.brownie,
+                            arrayOf(Allergens.GLUTEN, Allergens.FRUTOS_SECOS),
+                            7.90f,
+                            null)
+                    )),
             Table("Mesa 2", 3, mutableListOf()),
             Table("Mesa 3", 5, mutableListOf()),
             Table("Mesa 4", 7, mutableListOf()),

@@ -1,5 +1,6 @@
 package dev.cherran.restaurapp.model
 
+import java.io.Serializable
 import java.util.*
 
 
@@ -12,7 +13,7 @@ enum class Allergens {
 }
 
 
-data class Dish (val name: String, val description: String, val image: Int, val allergens: Array<Allergens>?, val price: Float, val comments: String? ) {
+data class Dish (val name: String, val description: String, val image: Int, val allergens: Array<Allergens>?, val price: Float, val comments: String? ) : Serializable {
 
 
     // Array property in data class. It is recomended to override equals and hashCode methods

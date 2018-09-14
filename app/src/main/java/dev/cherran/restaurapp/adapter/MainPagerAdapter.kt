@@ -3,7 +3,7 @@ package dev.cherran.restaurapp.adapter
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import dev.cherran.restaurapp.fragment.DishListFragment
+import dev.cherran.restaurapp.fragment.AllDishListFragment
 import dev.cherran.restaurapp.fragment.TableListFragment
 
 
@@ -15,7 +15,7 @@ class MainPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 TableListFragment()
             }
             else -> {
-                DishListFragment()
+                AllDishListFragment()
             }
         }
     }

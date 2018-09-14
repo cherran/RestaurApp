@@ -14,37 +14,54 @@ import android.view.ViewGroup
 import dev.cherran.restaurapp.R
 import dev.cherran.restaurapp.adapter.CellFormat
 import dev.cherran.restaurapp.adapter.DishListAdapter
-import dev.cherran.restaurapp.model.Dish
 import dev.cherran.restaurapp.model.Dishes
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-private const val ARG_DISHES = "dishes"
-private const val ARG_CELL_FORMAT = "cellFormat"
-
-
-class DishListFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ * Activities that contain this fragment must implement the
+ * [DishListFragment.OnFragmentInteractionListener] interface
+ * to handle interaction events.
+ * Use the [DishListFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ *
+ */
+class AllDishListFragment : Fragment() {
     companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment DishListFragment.
+         */
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(dishes: List<Dish>, cellFormat: Int) =
+        fun newInstance(param1: String, param2: String) =
                 DishListFragment().apply {
                     arguments = Bundle().apply {
-                        putSerializable(ARG_DISHES, dishes.toTypedArray())
-                        putInt(ARG_CELL_FORMAT, cellFormat)
+                        putString(ARG_PARAM1, param1)
+                        putString(ARG_PARAM2, param2)
                     }
                 }
     }
 
 
     // TODO: Rename and change types of parameters
-    private var dishes: Array<Dish>? = null
-    private var cellFormat: Int? = null
+    private var param1: String? = null
+    private var param2: String? = null
     // private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            dishes = it.getSerializable(ARG_DISHES) as Array<Dish>
-            cellFormat = it.getInt(ARG_CELL_FORMAT)
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -59,10 +76,9 @@ class DishListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        val dishList = view?.findViewById<RecyclerView>(R.id.dish_list)
 
-        val dishList = view.findViewById<RecyclerView>(R.id.dish_list)
-
-        dishList.adapter = DishListAdapter(dishes!!, CellFormat.SMALL, null)
+        dishList.adapter = DishListAdapter(Dishes.toArray(), CellFormat.COMPLETE, null)
 
         // TODO. change spanCount for tablet?
         dishList.layoutManager = GridLayoutManager(activity, 1)

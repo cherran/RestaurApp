@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import dev.cherran.restaurapp.R
+import dev.cherran.restaurapp.adapter.CellFormat
+import dev.cherran.restaurapp.model.Allergens
+import dev.cherran.restaurapp.model.Dish
+import dev.cherran.restaurapp.model.Dishes
 import dev.cherran.restaurapp.model.Tables
 import kotlinx.android.synthetic.main.fragment_table_detail.*
 
@@ -77,7 +81,9 @@ class TableDetailFragment : Fragment() {
             // Compruebo que el fragment no esté añadido ya
             if (childFragmentManager.findFragmentById(R.id.table_dish_list_fragment)  == null) { // Se puede hacer con savedInstanceState == null
                 // Añado el Fragment de forma dinámica
-                val fragment = DishListFragment.newInstance("", "")
+
+
+                val fragment = DishListFragment.newInstance(table.getDishes(), CellFormat.SMALL.ordinal)
 
                 childFragmentManager.beginTransaction()
                         .add(R.id.table_dish_list_fragment, fragment)

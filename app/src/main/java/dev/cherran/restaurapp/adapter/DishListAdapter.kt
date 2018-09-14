@@ -11,8 +11,8 @@ import dev.cherran.restaurapp.model.Allergens
 import dev.cherran.restaurapp.model.Dish
 
 
-class DishListAdapter (private val dishList: List<Dish>, private val cellFormat: CellFormat, private val onDishSelectedListener: OnDishSelectedListener?) : RecyclerView.Adapter<DishListAdapter.DishViewHolder>(){
-    override fun getItemCount(): Int = dishList.count()
+class DishListAdapter (private val dishArray: Array<Dish>, private val cellFormat: CellFormat, private val onDishSelectedListener: OnDishSelectedListener?) : RecyclerView.Adapter<DishListAdapter.DishViewHolder>(){
+    override fun getItemCount(): Int = dishArray.count()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.content_dish, parent, false)
@@ -20,11 +20,11 @@ class DishListAdapter (private val dishList: List<Dish>, private val cellFormat:
     }
 
     override fun onBindViewHolder(viewHolder: DishViewHolder, position: Int) {
-        viewHolder.bindDish(dishList[position])
+        viewHolder.bindDish(dishArray[position])
 
         // onCLick Listener
         viewHolder.itemView.setOnClickListener {
-            onDishSelectedListener?.onCourseSelected(dishList[position])
+            onDishSelectedListener?.onCourseSelected(dishArray[position])
         }
     }
 

@@ -11,5 +11,7 @@ data class Table (val name: String, val people: Int, private var dishes: Mutable
 
     override fun toString(): String = name
 
+    fun getDishes() = dishes
+
 
 }
